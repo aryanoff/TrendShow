@@ -105,16 +105,27 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Description with Read More / Show Less interaction
+        // Description with truthful catalog presentation & accessible Read More / Show Less
         const descText = document.getElementById("productDescriptionText");
-        const fullDesc = product.description || "Explore current pricing, verified specifications, and available options directly on the official merchant site.";
+        const hasCatalogDescription = Boolean(product.description && product.description.trim());
+        const fullDesc = hasCatalogDescription 
+            ? product.description.trim() 
+            : "No supplier description provided in the catalog. View full specifications, customer reviews, and live product details directly on the merchant site.";
+
         if (descText) {
             descText.textContent = fullDesc;
+            if (!hasCatalogDescription) {
+                descText.style.fontStyle = "italic";
+                descText.style.color = "#6c727f";
+            } else {
+                descText.style.fontStyle = "normal";
+                descText.style.color = "#4a5568";
+            }
         }
 
         if (descWrapper && descToggleBtn) {
-            // Only show toggle if description is sufficiently long (> 180 chars)
-            if (fullDesc.length > 180) {
+            // Only show toggle if original description is present and sufficiently long (> 180 chars)
+            if (hasCatalogDescription && fullDesc.length > 180) {
                 descToggleBtn.style.display = "inline-flex";
                 descWrapper.classList.remove("is-expanded");
                 descToggleBtn.setAttribute("aria-expanded", "false");

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <linearGradient id="tsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff3f6c" />
+      <stop offset="100%" stop-color="#ff6b6b" />
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="12" fill="url(#tsGrad)" />
+  <!-- Shopping Bag / Cart Silhouette -->
+  <path d="M16 18h16v18a2 2 0 0 1-2 2H18a2 2 0 0 1-2-2V18z" fill="#ffffff" />
+  <path d="M20 18v-4a4 4 0 0 1 8 0v4" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+  <!-- Sparkle / Trend Star -->
+  <path d="M24 23l1.2 2.8 2.8 1.2-2.8 1.2L24 31l-1.2-2.8-2.8-1.2 2.8-1.2L24 23z" fill="#ff3f6c" />
+</svg>

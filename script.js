@@ -9,7 +9,7 @@
 
 const shopByBoxData = {
     amazon: {
-        image: "https://static.vecteezy.com/system/resources/thumbnails/019/766/240/small/amazon-logo-amazon-icon-transparent-free-png.png",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23ffffff' stroke='%23e2e8f0' stroke-width='2'/%3E%3Ctext x='32' y='58' font-family='sans-serif' font-size='44' font-weight='900' fill='%23131921'%3Ea%3C/text%3E%3Cpath d='M26 67c14 9 34 9 46 0' fill='none' stroke='%23ff9900' stroke-width='4.5' stroke-linecap='round'/%3E%3Cpath d='M68 62l6 5-5 5' fill='none' stroke='%23ff9900' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E",
         title: "Amazon",
         button: "Shop Now",
         alt: "Amazon Deals",
@@ -37,7 +37,7 @@ const shopByBoxData = {
         target: "jiomartSection"
     },
     topDeals: {
-        image: "https://static.vecteezy.com/system/resources/thumbnails/026/976/930/small/best-deal-label-alphabet-3d-text-effect-promotion-discount-label-templates-png.png",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff3f6c'/%3E%3Cstop offset='100%25' stop-color='%23ff793f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='%23ffffff' stroke='%23e2e8f0' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='38' fill='url(%23g)'/%3E%3Cpath d='M52 24L36 50h14l-4 26 20-30H50z' fill='%23ffffff'/%3E%3C/svg%3E",
         title: "Top Deals",
         button: "Shop Now",
         alt: "Viral Top Deals",

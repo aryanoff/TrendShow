@@ -6,7 +6,8 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const retailerKey = urlParams.get("retailer") || "amazon";
+    const rawParam = urlParams.get("retailer") || urlParams.get("store") || "amazon";
+    const retailerKey = rawParam.toLowerCase().trim();
 
     const meta = window.ProductStore ? window.ProductStore.getRetailerMeta(retailerKey) : null;
     const bannerSection = document.getElementById("retailerBannerSection");

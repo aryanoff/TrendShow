@@ -26,7 +26,7 @@ const RETAILERS_DATA = {
         borderColor: "#ffd699",
         badge: "Amazon Exclusive",
         icon: "fa-brands fa-amazon",
-        logo: "https://static.vecteezy.com/system/resources/thumbnails/019/766/240/small/amazon-logo-amazon-icon-transparent-free-png.png",
+        logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23ffffff' stroke='%23e2e8f0' stroke-width='2'/%3E%3Ctext x='32' y='58' font-family='sans-serif' font-size='44' font-weight='900' fill='%23131921'%3Ea%3C/text%3E%3Cpath d='M26 67c14 9 34 9 46 0' fill='none' stroke='%23ff9900' stroke-width='4.5' stroke-linecap='round'/%3E%3Cpath d='M68 62l6 5-5 5' fill='none' stroke='%23ff9900' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E",
         banner: "https://assets.aboutamazon.com/8a/3f/e7ebea4e453bb94dca93111d35ed/great-indian-festival-2026.jpeg",
         affiliateBase: "https://www.amazon.in"
     },
@@ -82,7 +82,7 @@ const RETAILERS_DATA = {
         borderColor: "#ffccba",
         badge: "Top Discount",
         icon: "fa-solid fa-fire",
-        logo: "https://static.vecteezy.com/system/resources/thumbnails/026/976/930/small/best-deal-label-alphabet-3d-text-effect-promotion-discount-label-templates-png.png",
+        logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff3f6c'/%3E%3Cstop offset='100%25' stop-color='%23ff793f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='%23ffffff' stroke='%23e2e8f0' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='38' fill='url(%23g)'/%3E%3Cpath d='M52 24L36 50h14l-4 26 20-30H50z' fill='%23ffffff'/%3E%3C/svg%3E",
         banner: "https://assets.myntassets.com/w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2026/OCTOBER/6/66e76e2f18ae4a88ac668d763981077f.gif",
         affiliateBase: "https://www.trendshow.com/deals"
     },
@@ -220,9 +220,41 @@ function detectCategory(title, type) {
     if (/\b(shoe|shoes|runner|sneaker|sneakers|boots|loafer|loafers|footwear)\b/.test(text)) return "footwear";
     if (/\b(gym|workout|track pant|fitness|yoga|tights|waist belt|belly belt)\b/.test(text)) return "activewear";
     if (/\b(bedsheet|pillow|blanket|mattress|towel|duster|cleaning|cloths|cushion|mat|door mat|oil sprayer|iron|refrigerator|bottle)\b/.test(text)) return "home-living";
-    if (/\b(phone|mobile|5g|iphone|oneplus|vivo|iqoo|laptop|tab|tablet|soundbar|speaker|keyboard|trolley|suitcase|bag|sling|pouch|sketchbook)\b/.test(text)) return "accessories";
+    if (/\b(phone|mobile|5g|iphone|oneplus|vivo|iqoo|laptop|tab|tablet|sound\s*bar|soundbar|speaker|theatre|theater|subwoofer|headphone|earphone|earbuds|smartwatch|watch|charger|cable|keyboard|trolley|suitcase|bag|sling|pouch|sketchbook)\b/.test(text)) return "accessories";
     if (/\b(shirt|shirts|jeans|trousers|pant|pants|dress|jacket|tunic|tops|casual)\b/.test(text)) return "streetwear";
     return "streetwear";
+}
+
+/**
+ * Accurately parse discount percentages from various spreadsheet representations:
+ * e.g., 76, "76", -76, "-76%", "76%", 0.76, -0.76, etc.
+ */
+function parseDiscountPercent(cell) {
+    if (!cell) return 0;
+    // Check formatted string first if present
+    if (cell.f && typeof cell.f === "string" && cell.f.includes("%")) {
+        const m = cell.f.match(/\d+(\.\d+)?/);
+        if (m) return Math.round(parseFloat(m[0]));
+    }
+    const v = cell.v !== undefined && cell.v !== null ? cell.v : cell.f;
+    if (typeof v === "number") {
+        const abs = Math.abs(v);
+        if (abs === 0) return 0;
+        if (abs <= 1) return Math.round(abs * 100);
+        return Math.round(abs);
+    }
+    if (typeof v === "string") {
+        const s = v.trim();
+        const dec = s.match(/^-?0\.\d+/);
+        if (dec) return Math.round(Math.abs(parseFloat(dec[0])) * 100);
+        const m = s.match(/-?\d+(\.\d+)?/);
+        if (m) {
+            const num = Math.abs(parseFloat(m[0]));
+            if (num <= 1 && num > 0 && s.includes(".")) return Math.round(num * 100);
+            return Math.round(num);
+        }
+    }
+    return 0;
 }
 
 /**
@@ -255,20 +287,9 @@ function parseGvizRows(rawRows) {
         const details = c[1] && c[1].v !== null ? String(c[1].v).trim() : "";
         const image = c[2] && c[2].v !== null ? String(c[2].v).trim() : "";
 
-        // Parse discount percent
-        let discountNum = 0;
-        let offerStr = "";
-        if (c[3]) {
-            if (typeof c[3].v === "number") {
-                discountNum = Math.round(Math.abs(c[3].v) * 100);
-            } else if (c[3].f) {
-                const m = String(c[3].f).match(/\d+/);
-                if (m) discountNum = parseInt(m[0], 10);
-            }
-        }
-        if (discountNum > 0) {
-            offerStr = `${discountNum}% OFF`;
-        }
+        // Parse discount percent accurately from fraction or whole percentage
+        const discountNum = parseDiscountPercent(c[3]);
+        const offerStr = discountNum > 0 ? `${discountNum}% OFF` : "";
 
         // Parse price
         let priceNum = 0;
@@ -331,7 +352,7 @@ function parseGvizRows(rawRows) {
         const retailerMeta = RETAILERS_DATA[retailer] || RETAILERS_DATA.amazon;
         const retailerName = retailerMeta.name;
 
-        // Canonical Product Record
+        // Canonical Product Record (omit availability or unsupported fields; truthful catalog descriptions)
         validProducts.push({
             id: finalId,
             title,
@@ -348,11 +369,10 @@ function parseGvizRows(rawRows) {
             image: validImage,
             imageUrl: validImage,
             alt: brand ? `${brand} - ${title}` : title,
-            description: details || "Explore current pricing, verified specifications, and available options directly on the official merchant site.",
+            description: details || "",
             affiliateUrl: isValidUrl(affiliateUrl) ? affiliateUrl : "",
             button: `Shop ${retailerName}`,
             featured: isFeatured,
-            availability: "In Stock",
             rowNumber: rowNum,
             updatedAt: new Date().toISOString()
         });
