@@ -1,10 +1,5 @@
 /* Search Page Custom Styles */
 
-/* Hide redundant header search on the dedicated search page */
-.head-bar .search {
-    display: none;
-}
-
 .search-hero-bar {
     width: min(var(--max-width), 100%);
     margin: 0 auto 30px;
@@ -42,6 +37,7 @@
 
 .big-search-box input {
     flex: 1;
+    min-width: 0;
     border: none;
     background: transparent;
     outline: none;
@@ -269,11 +265,71 @@
 
 @media (max-width: 768px) {
     .search-hero-bar {
-        padding: 16px 18px;
+        padding: 14px 12px;
+        margin: 0 auto 20px;
+        border-radius: var(--radius-md);
+    }
+
+    .big-search-box {
+        padding: 4px 6px 4px 14px;
+    }
+
+    .big-search-box input {
+        font-size: 13.5px;
+    }
+
+    .big-search-box button#mainSearchBtn {
+        padding: 8px 16px;
+        font-size: 13px;
     }
 
     .results-meta-row {
         flex-direction: column;
         align-items: flex-start;
+        gap: 10px;
+    }
+
+    .filter-group {
+        gap: 8px;
+    }
+
+    .filter-label {
+        min-width: auto;
+        font-size: 12px;
+    }
+
+    .filter-pill {
+        padding: 4px 10px;
+        font-size: 11.5px;
+    }
+
+    .quick-keywords {
+        font-size: 12px;
+        gap: 6px;
+    }
+
+    .kw-btn {
+        padding: 4px 10px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 360px) {
+    .big-search-box {
+        padding: 4px 4px 4px 10px;
+    }
+
+    .big-search-box i {
+        font-size: 15px;
+        margin-right: 6px;
+    }
+
+    .big-search-box input {
+        font-size: 12.5px;
+    }
+
+    .big-search-box button#mainSearchBtn {
+        padding: 7px 12px;
+        font-size: 12px;
     }
 }

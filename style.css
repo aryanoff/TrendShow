@@ -34,23 +34,35 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: var(--header-height, 80px);
+    height: var(--header-height, 72px);
     display: flex;
     align-items: center;
-    background: #ffffff;
-    z-index: 9999;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 1000;
     border-bottom: 1px solid var(--border-light, #ebebf0);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
 }
 
 .head-bar nav {
-    width: min(var(--max-width, 1280px), 100%);
+    width: min(var(--max-width, 1400px), 100%);
     margin: 0 auto;
     padding: 0 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .head-bar {
+        height: var(--header-height, 60px);
+    }
+    .head-bar nav {
+        padding: 0 10px;
+        gap: 8px;
+    }
 }
 
 nav .logo {
@@ -266,6 +278,78 @@ nav .logo img {
     margin: 3px 0 0;
 }
 
+/* Responsive Shop With Section */
+@media (max-width: 640px) {
+    .shop-bar {
+        padding: 12px 14px 16px;
+        gap: 12px;
+    }
+
+    .shop-bar h3,
+    .shop-bar-heading {
+        font-size: 16px;
+        letter-spacing: 0.12em;
+    }
+
+    .shop-logo-boxes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px 8px;
+        max-width: 380px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .shop-logo-boxes .shop-by-box-link {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .shop-logo-boxes .shop-by-box {
+        width: 100%;
+        max-width: 95px;
+    }
+
+    .shop-by-box .shop-by-box-image {
+        width: 60px;
+        height: 60px;
+        padding: 8px;
+    }
+
+    .shop-by-box .shop-by-box-content {
+        margin-top: 6px;
+    }
+
+    .shop-by-box .shop-by-box-content h3 {
+        font-size: 11.5px;
+    }
+
+    .shop-by-box .shop-by-box-content p {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 350px) {
+    .shop-logo-boxes {
+        gap: 8px 4px;
+    }
+
+    .shop-by-box .shop-by-box-image {
+        width: 52px;
+        height: 52px;
+        padding: 6px;
+    }
+
+    .shop-by-box .shop-by-box-content h3 {
+        font-size: 11px;
+    }
+
+    .shop-by-box .shop-by-box-content p {
+        font-size: 9px;
+    }
+}
+
 
 
 /* =========================================
@@ -288,7 +372,7 @@ nav .logo img {
     height: 380px;
 }
 
-/* Individual slide — ALL slides stay absolute, only opacity changes */
+/* Individual slide — clean transition with visibility management to prevent ghosting */
 .sale-slide {
     position: absolute;
     top: 0;
@@ -296,15 +380,23 @@ nav .logo img {
     width: 100%;
     height: 100%;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.35s ease, visibility 0.35s ease;
     z-index: 0;
 }
 
 .sale-slide--active {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
-    z-index: 1;
+    z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sale-slide {
+        transition: none !important;
+    }
 }
 
 /* Slide inner layout: offer-strip left + hero right */
@@ -531,6 +623,160 @@ nav .logo img {
     background: #fff;
     border-color: #fff;
     transform: scale(1.2);
+}
+
+/* Responsive Promotional Carousel for Mobile & Tablet */
+@media (max-width: 768px) {
+    .sale-slider {
+        margin: 0 auto 12px;
+        border-radius: 8px;
+    }
+
+    .sale-slider-track {
+        height: 310px;
+    }
+
+    .sale-slide-inner {
+        flex-direction: column;
+        height: 310px;
+        width: 100%;
+    }
+
+    /* Stack hero image at top: full width, 195px height */
+    .slide-hero {
+        flex: 1;
+        height: 195px;
+        width: 100%;
+        position: relative;
+        order: 1;
+    }
+
+    .slide-hero-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    /* Stack offer strip below: full width, 115px height, horizontal layout */
+    .slide-offer-strip {
+        flex: 0 0 115px;
+        height: 115px;
+        width: 100%;
+        order: 2;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .slide-offer-text {
+        align-items: flex-start;
+        text-align: left;
+        gap: 2px;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .slide-offer-label {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+    }
+
+    .slide-offer-value {
+        font-size: 22px;
+        font-weight: 850;
+        line-height: 1.1;
+    }
+
+    .slide-offer-sub {
+        font-size: 11px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+
+    .slide-offer-seam {
+        display: none;
+    }
+
+    .slide-shop-btn {
+        padding: 9px 18px;
+        font-size: 12px;
+        flex-shrink: 0;
+    }
+
+    /* Slider controls centered on the hero image area */
+    .slider-btn {
+        top: 98px;
+        width: 32px;
+        height: 32px;
+        font-size: 11px;
+        background: rgba(255, 255, 255, 0.88);
+    }
+
+    .slider-btn--prev {
+        left: 8px;
+    }
+
+    .slider-btn--next {
+        right: 8px;
+    }
+
+    .slider-dots {
+        bottom: 123px;
+        gap: 6px;
+    }
+
+    .slider-dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 360px) {
+    .sale-slider-track {
+        height: 295px;
+    }
+
+    .sale-slide-inner {
+        height: 295px;
+    }
+
+    .slide-hero {
+        height: 185px;
+    }
+
+    .slide-offer-strip {
+        flex: 0 0 110px;
+        height: 110px;
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .slide-offer-value {
+        font-size: 19px;
+    }
+
+    .slide-shop-btn {
+        padding: 8px 14px;
+        font-size: 11px;
+    }
+
+    .slider-btn {
+        top: 92px;
+        width: 28px;
+        height: 28px;
+    }
+
+    .slider-dots {
+        bottom: 118px;
+    }
 }
 
 
@@ -790,6 +1036,30 @@ picture img{
     margin-top: auto;
     text-decoration: none;
     white-space: nowrap;
+}
+
+.card-cta .cta-label-full {
+    display: inline;
+}
+
+.card-cta .cta-label-short {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .card-cta {
+        padding: 6px 10px;
+        font-size: 11px;
+        gap: 5px;
+    }
+
+    .card-cta .cta-label-full {
+        display: none;
+    }
+
+    .card-cta .cta-label-short {
+        display: inline;
+    }
 }
 
 /* -----------------------------------------

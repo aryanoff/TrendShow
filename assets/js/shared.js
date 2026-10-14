@@ -115,7 +115,7 @@ function createProductCardHTML(product, customBasePath) {
                             class="card-cta"
                             aria-label="Shop this deal on ${escapeHtml(retailerName)} (opens in new tab)"
                         >
-                            <span>${escapeHtml(outboundBtnText)}</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <span class="cta-label-full">${escapeHtml(outboundBtnText)}</span><span class="cta-label-short">Shop</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
                     ` : `
                         <a href="${productUrl}" class="card-cta card-cta--secondary">
