@@ -1,0 +1,206 @@
+/* Retailer Page Custom Styles */
+
+.retailer-banner-section {
+    width: min(var(--max-width), 100%);
+    margin: 20px auto 25px;
+    padding: 35px 30px;
+    border-radius: var(--radius-lg);
+    background: #ffffff;
+    border: 1.5px solid var(--border-light);
+    box-shadow: var(--shadow-subtle);
+    transition: all 0.3s ease;
+}
+
+.retailer-banner-content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.retailer-logo-circle {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border: 1.5px solid var(--border-light);
+    flex-shrink: 0;
+}
+
+.retailer-logo-circle img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.retailer-exclusive-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    background: #f0f0f4;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+}
+
+.retailer-banner-content h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.retailer-banner-content p {
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    margin: 4px 0 0;
+}
+
+.retailer-switch-bar {
+    width: min(var(--max-width), 100%);
+    margin: 0 auto 30px;
+    padding: 16px 20px;
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13.5px;
+    font-weight: 700;
+}
+
+.retailer-switch-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.r-pill {
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-light);
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.r-pill:hover,
+.r-pill.active {
+    background: var(--brand-coral);
+    border-color: var(--brand-coral);
+    color: #ffffff;
+}
+
+.retailer-products-section {
+    width: min(var(--max-width), 100%);
+    margin: 0 auto 60px;
+}
+
+.retailer-controls-header {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.retailer-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 14px 18px;
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.filter-pills {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.filter-pill {
+    padding: 5px 12px;
+    border-radius: var(--radius-pill);
+    background: #f4f5f8;
+    border: 1px solid var(--border-light);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-pill:hover {
+    background: #ebecee;
+    color: var(--text-primary);
+}
+
+.filter-pill.active {
+    background: var(--brand-coral);
+    border-color: var(--brand-coral);
+    color: #ffffff;
+}
+
+.sort-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.sort-box select {
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+    background: #ffffff;
+    font-size: 13px;
+    color: var(--text-primary);
+    outline: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .retailer-controls-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 650px) {
+    .retailer-banner-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

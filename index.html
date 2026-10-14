@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="TrendShow — Multi-retailer affiliate shopping discovery platform. Discover and compare curated deals and lifestyle trends from Amazon, Flipkart, Meesho, JioMart, and Myntra.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendShow — Multi-Retailer Deals, Discounts & Fashion Trends</title>
+
+    <link rel="stylesheet" href="assets/css/shared.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="shortcut icon"
+        href="https://static.vecteezy.com/system/resources/thumbnails/043/101/890/small/shoping-cart-icon-3d-render-illustration-png.png"
+        type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Main Fixed Navigation Bar -->
+    <header class="head-bar">
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/043/101/890/small/shoping-cart-icon-3d-render-illustration-png.png"
+                        alt="TrendShow Logo">
+                    <span>TrendShow</span>
+                </a>
+            </div>
+
+            <div class="search">
+                <span class="search-icon" aria-label="Search button"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="search" id="globalSearchInput" placeholder="Search for products, brands and deals..." autocomplete="off">
+            </div>
+
+            <div class="menu" id="mainNavigationMenu">
+                <a href="index.html" class="active">Home</a>
+                <a href="pages/shop/index.html">Shop</a>
+                <a href="pages/categories/index.html">Categories</a>
+                <a href="pages/offers/index.html">Offers</a>
+                <a href="pages/trends/index.html">Trends</a>
+                <a href="pages/sales/index.html">Sale <span class="live-badge">HOT</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SHOP WITH Retailer Section -->
+    <header class="shop-bar">
+        <h3 class="shop-bar-heading">Shop With</h3>
+        <div class="shop-logo-boxes" id="shopByBoxContainer">
+            <!-- Dynamically populated or rendered by JS -->
+        </div>
+    </header>
+
+    <!-- Affiliate Disclosure Notice -->
+    <div class="affiliate-disclosure-banner">
+        <i class="fa-solid fa-circle-info"></i>
+        <div>
+            <strong>Affiliate Disclosure:</strong> TrendShow is an independent shopping discovery guide. Qualifying purchases made through outbound merchant links may earn us an affiliate commission at no extra cost to you. <a href="pages/affiliate-disclosure/index.html">Learn more about our curation process</a>.
+        </div>
+    </div>
+
+    <main>
+        <!-- Split Hero Promotional Carousel -->
+        <section class="slideshow" aria-label="Featured Promotional Campaigns">
+            <div class="sale-slider" id="saleSlider">
+                <div class="sale-slider-track" id="saleSliderTrack">
+                    <!-- Slides injected dynamically by script.js -->
+                </div>
+
+                <button class="slider-btn slider-btn--prev" id="sliderPrev" aria-label="Previous slide">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <button class="slider-btn slider-btn--next" id="sliderNext" aria-label="Next slide">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Promotional slide pagination">
+                    <!-- Dots injected dynamically by script.js -->
+                </div>
+            </div>
+
+            <picture class="hero-subbanner">
+                <img src="https://assets.myntassets.com/w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2026/OCTOBER/6/66e76e2f18ae4a88ac668d763981077f.gif"
+                    alt="Festive Shopping Season Banner">
+            </picture>
+        </section>
+
+        <!-- 1. Top Deals Section -->
+        <article class="category category--topdeals" id="topDealsSection">
+            <div class="category-header">
+                <div class="category-header-main">
+                    <span class="category-badge"><i class="fa-solid fa-fire"></i> Hot Deals</span>
+                    <h1>Top <mark>Deals</mark></h1>
+                    <p class="category-subtitle">Biggest cross-platform discounts & viral fashion trends</p>
+                </div>
+                <a href="pages/offers/index.html" class="category-view-all">View All Deals <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="grid-category" id="topDealsContainer"></div>
+        </article>
+
+        <!-- Mid-Page Promotional Banner -->
+        <picture class="promo-banner">
+            <img src="https://assets.myntassets.com/w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2026/SEPTEMBER/24/a73a997ce95c4dee92f25082087d45b5.gif"
+                alt="Grand Multi-Retailer Festival Offers">
+        </picture>
+
+        <!-- 2. Amazon Brands Section -->
+        <article class="category category--amazon" id="amazonSection">
+            <div class="category-header">
+                <div class="category-header-main">
+                    <span class="category-badge"><i class="fa-brands fa-amazon"></i> Amazon Exclusive</span>
+                    <h1>Amazon <mark>Brands</mark></h1>
+                    <p class="category-subtitle">Prime quality daily fashion, denim & essentials at best value</p>
+                </div>
+                <a href="pages/retailer/index.html?retailer=amazon" class="category-view-all">Explore Amazon <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="grid-category" id="amazonContainer"></div>
+        </article>
+
+        <!-- 3. Flipkart Brands Section -->
+        <article class="category category--flipkart" id="flipkartSection">
+            <div class="category-header">
+                <div class="category-header-main">
+                    <span class="category-badge"><i class="fa-solid fa-bolt"></i> Flipkart Assured</span>
+                    <h1>Flipkart <mark>Brands</mark></h1>
+                    <p class="category-subtitle">Youth streetwear, casual flannels & super saver deals</p>
+                </div>
+                <a href="pages/retailer/index.html?retailer=flipkart" class="category-view-all">Explore Flipkart <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="grid-category" id="flipkartContainer"></div>
+        </article>
+
+        <!-- 4. Meesho Brands Section -->
+        <article class="category category--meesho" id="meeshoSection">
+            <div class="category-header">
+                <div class="category-header-main">
+                    <span class="category-badge"><i class="fa-solid fa-tag"></i> Lowest Price</span>
+                    <h1>Meesho <mark>Brands</mark></h1>
+                    <p class="category-subtitle">Direct manufacturer pricing on ethnic kurtis, sarees & jewelry</p>
+                </div>
+                <a href="pages/retailer/index.html?retailer=meesho" class="category-view-all">Explore Meesho <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="grid-category" id="meeshoContainer"></div>
+        </article>
+
+        <!-- 5. JioMart Brands Section -->
+        <article class="category category--jiomart" id="jiomartSection">
+            <div class="category-header">
+                <div class="category-header-main">
+                    <span class="category-badge"><i class="fa-solid fa-basket-shopping"></i> Super Saver Deals</span>
+                    <h1>JioMart <mark>Brands</mark></h1>
+                    <p class="category-subtitle">Everyday lifestyle, Smart Bazaar favorites & festive collections</p>
+                </div>
+                <a href="pages/retailer/index.html?retailer=jiomart" class="category-view-all">Explore JioMart <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="grid-category" id="jiomartContainer"></div>
+        </article>
+
+        <!-- 6. Myntra Brands Section -->
+        <article class="category category--myntra" id="myntraSection">
+            <div class="category-header">
+                <div class="category-header-main">
+                    <span class="category-badge"><i class="fa-solid fa-crown"></i> Runway Trends</span>
+                    <h1>Myntra <mark>Brands</mark></h1>
+                    <p class="category-subtitle">India's trendiest styles, celebrity collections & premium apparel</p>
+                </div>
+                <a href="pages/retailer/index.html?retailer=myntra" class="category-view-all">Explore Myntra <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="grid-category" id="myntraContainer"></div>
+        </article>
+    </main>
+
+    <!-- Upgraded Multi-Retailer Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Brand Overview -->
+                <div class="footer-brand">
+                    <h3><i class="fa-solid fa-cart-shopping" style="color: #ff3f6c;"></i> TrendShow</h3>
+                    <p>
+                        TrendShow is an independent multi-retailer deal aggregator and fashion trends discovery platform. We curate verified discounts, festive campaigns, and wardrobe essentials across India's leading shopping destinations.
+                    </p>
+                    <div class="footer-badge-list">
+                        <span>Curated Deals</span>
+                        <span>Affiliate Portal</span>
+                        <span>Multi-Retailer</span>
+                        <span>Verified Offers</span>
+                    </div>
+                </div>
+
+                <!-- Shopping Links -->
+                <div class="footer-column">
+                    <h4>Discover</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/shop/index.html">Shop All</a></li>
+                        <li><a href="pages/categories/index.html">Categories</a></li>
+                        <li><a href="pages/offers/index.html">Deals & Offers</a></li>
+                        <li><a href="pages/trends/index.html">Runway Trends</a></li>
+                        <li><a href="pages/sales/index.html">Sales & Festivals</a></li>
+                    </ul>
+                </div>
+
+                <!-- Retailer Portals -->
+                <div class="footer-column">
+                    <h4>Retailers</h4>
+                    <ul>
+                        <li><a href="pages/retailer/index.html?retailer=amazon">Amazon Deals</a></li>
+                        <li><a href="pages/retailer/index.html?retailer=flipkart">Flipkart Assured</a></li>
+                        <li><a href="pages/retailer/index.html?retailer=meesho">Meesho Value</a></li>
+                        <li><a href="pages/retailer/index.html?retailer=jiomart">JioMart Savers</a></li>
+                        <li><a href="pages/retailer/index.html?retailer=myntra">Myntra Fashion</a></li>
+                        <li><a href="pages/offers/index.html">Lightning Steals</a></li>
+                    </ul>
+                </div>
+
+                <!-- Help & Policies -->
+                <div class="footer-column">
+                    <h4>Help & Info</h4>
+                    <ul>
+                        <li><a href="pages/about/index.html">About TrendShow</a></li>
+                        <li><a href="pages/contact/index.html">Contact Us</a></li>
+                        <li><a href="pages/faq/index.html">Frequently Asked Questions</a></li>
+                        <li><a href="pages/affiliate-disclosure/index.html">Affiliate Disclosure</a></li>
+                        <li><a href="pages/privacy-policy/index.html">Privacy Policy</a></li>
+                        <li><a href="pages/terms/index.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Developer Attribution -->
+                <div class="footer-column">
+                    <h4>Creator Info</h4>
+                    <div class="developer-attribution-box">
+                        <div class="dev-profile">
+                            <div class="dev-avatar">AS</div>
+                            <div class="dev-details">
+                                <h5>Aryan Singh Rajpoot</h5>
+                                <p>Frontend & Web Developer</p>
+                            </div>
+                        </div>
+                        <p style="font-size: 12.5px; color: #696b79; line-height: 1.5; margin: 0;">
+                            Designed and developed for practice, advanced UI/UX layout engineering, and responsive e-commerce affiliate architecture.
+                        </p>
+                        <a href="https://aryansinghrajpoot.vercel.app/" target="_blank" rel="noopener" class="dev-btn">
+                            <i class="fa-solid fa-globe"></i> Visit Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright & Disclaimer -->
+            <div class="footer-bottom">
+                <div>
+                    © 2026 TrendShow. Independent affiliate shopping discovery platform. Amazon, Flipkart, Meesho, JioMart, and Myntra trademarks belong to their respective owners. Outbound merchant links may generate commissions.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="pages/affiliate-disclosure/index.html">Disclosure</a>
+                    <a href="pages/privacy-policy/index.html">Privacy</a>
+                    <a href="pages/terms/index.html">Terms</a>
+                    <a href="pages/contact/index.html">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/product-data.js"></script>
+    <script src="assets/js/shared.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

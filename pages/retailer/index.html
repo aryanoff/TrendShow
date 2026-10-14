@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore retailer-specific deals and promotional discounts on TrendShow.">
+    <title>Retailer Deals Portal — TrendShow</title>
+    <link rel="stylesheet" href="../../assets/css/shared.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://static.vecteezy.com/system/resources/thumbnails/043/101/890/small/shoping-cart-icon-3d-render-illustration-png.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="head-bar">
+        <nav>
+            <div class="logo">
+                <a href="../../index.html">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/043/101/890/small/shoping-cart-icon-3d-render-illustration-png.png" alt="TrendShow">
+                    <span>TrendShow</span>
+                </a>
+            </div>
+            <div class="search">
+                <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="search" placeholder="Search merchant deals...">
+            </div>
+            <div class="menu">
+                <a href="../../index.html">Home</a>
+                <a href="../shop/index.html">Shop</a>
+                <a href="../categories/index.html">Categories</a>
+                <a href="../offers/index.html">Offers</a>
+                <a href="../trends/index.html">Trends</a>
+                <a href="../sales/index.html">Sale <span class="live-badge">HOT</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="breadcrumbs" style="width: min(var(--max-width), 100%); margin: 20px auto 10px;">
+            <a href="../../index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a href="../shop/index.html">Retailers</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span id="retailerBreadcrumbName">Retailer Deals</span>
+        </div>
+
+        <!-- Retailer Custom Header Banner -->
+        <section class="retailer-banner-section" id="retailerBannerSection">
+            <div class="retailer-banner-content">
+                <div class="retailer-logo-circle">
+                    <img id="retailerHeaderLogo" src="" alt="Retailer Logo">
+                </div>
+                <div>
+                    <span class="retailer-exclusive-badge" id="retailerExclusiveBadge">OFFICIAL MERCHANT DEALS</span>
+                    <h1 id="retailerHeaderTitle">Retailer Deals</h1>
+                    <p id="retailerHeaderTagline">Verified discounts & curated collections</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="affiliate-disclosure-banner">
+            <i class="fa-solid fa-circle-info"></i>
+            <div>
+                <strong>Affiliate Notice:</strong> TrendShow is an independent deal curator. Clicking merchant buttons redirects you to the official retailer website. Qualifying purchases may earn us a commission. <a href="../affiliate-disclosure/index.html">Learn more</a>.
+            </div>
+        </div>
+
+        <!-- Switch Retailer Pills -->
+        <section class="retailer-switch-bar">
+            <span>Explore Other Retailers:</span>
+            <div class="retailer-switch-pills">
+                <a href="index.html?retailer=amazon" class="r-pill" data-key="amazon">Amazon</a>
+                <a href="index.html?retailer=flipkart" class="r-pill" data-key="flipkart">Flipkart</a>
+                <a href="index.html?retailer=meesho" class="r-pill" data-key="meesho">Meesho</a>
+                <a href="index.html?retailer=jiomart" class="r-pill" data-key="jiomart">JioMart</a>
+                <a href="index.html?retailer=myntra" class="r-pill" data-key="myntra">Myntra</a>
+                <a href="index.html?retailer=topDeals" class="r-pill" data-key="topDeals">Top Deals</a>
+            </div>
+        </section>
+
+        <!-- Retailer Products Grid -->
+        <section class="retailer-products-section">
+            <div class="retailer-controls-header">
+                <div class="section-heading-box">
+                    <h2 id="retailerGridHeading">Available Deals</h2>
+                    <p id="retailerGridSub">Hand-picked active discounts available right now</p>
+                </div>
+                <div class="retailer-controls-row">
+                    <div class="filter-group">
+                        <span class="filter-label"><i class="fa-solid fa-layer-group"></i> Category:</span>
+                        <div class="filter-pills" id="retailerCategoryPills">
+                            <button type="button" class="filter-pill active" data-category="all">All</button>
+                            <button type="button" class="filter-pill" data-category="streetwear">Streetwear</button>
+                            <button type="button" class="filter-pill" data-category="ethnic">Ethnic Wear</button>
+                            <button type="button" class="filter-pill" data-category="footwear">Footwear</button>
+                            <button type="button" class="filter-pill" data-category="activewear">Activewear</button>
+                            <button type="button" class="filter-pill" data-category="accessories">Accessories</button>
+                            <button type="button" class="filter-pill" data-category="home-living">Home & Living</button>
+                        </div>
+                    </div>
+                    <div class="sort-box">
+                        <label for="retailerSortSelect"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort:</label>
+                        <select id="retailerSortSelect">
+                            <option value="featured">Featured Deals</option>
+                            <option value="discount">Highest Discount</option>
+                            <option value="name">Name (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-category" id="retailerProductsGrid">
+                <!-- Products injected by script.js -->
+            </div>
+            <div class="empty-state" id="retailerEmptyState" style="display: none; padding: 45px 20px; text-align: center;">
+                <i class="fa-solid fa-store-slash" style="font-size: 36px; color: #ff8a00; margin-bottom: 14px;"></i>
+                <h3 style="font-size: 20px; color: #282c3f; margin-bottom: 8px;">No matching deals found</h3>
+                <p style="font-size: 14px; color: #878b94; max-width: 480px; margin: 0 auto 18px;">No products currently match this retailer and category filter combination. Try clearing category filters or exploring other merchant portals.</p>
+                <button type="button" id="retailerResetFiltersBtn" class="btn-primary" style="display: inline-block; padding: 10px 22px; border-radius: 9999px; background: #ff3f6c; color: #fff; font-weight: 700; border: none; cursor: pointer;">Show All Deals</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <div>© 2026 TrendShow. Multi-retailer affiliate shopping discovery portal.</div>
+                <div class="footer-bottom-links">
+                    <a href="../affiliate-disclosure/index.html">Disclosure</a>
+                    <a href="../privacy-policy/index.html">Privacy</a>
+                    <a href="../terms/index.html">Terms</a>
+                    <a href="../contact/index.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/product-data.js"></script>
+    <script src="../../assets/js/shared.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

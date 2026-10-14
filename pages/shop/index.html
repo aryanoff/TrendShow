@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop all curated discounts and multi-retailer deals across Amazon, Flipkart, Meesho, JioMart, and Myntra.">
+    <title>Shop All Products & Retailer Deals — TrendShow</title>
+    <link rel="stylesheet" href="../../assets/css/shared.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://static.vecteezy.com/system/resources/thumbnails/043/101/890/small/shoping-cart-icon-3d-render-illustration-png.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="head-bar">
+        <nav>
+            <div class="logo">
+                <a href="../../index.html">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/043/101/890/small/shoping-cart-icon-3d-render-illustration-png.png" alt="TrendShow">
+                    <span>TrendShow</span>
+                </a>
+            </div>
+            <div class="search">
+                <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="search" placeholder="Search for products, brands and deals...">
+            </div>
+            <div class="menu">
+                <a href="../../index.html">Home</a>
+                <a href="index.html" class="active">Shop</a>
+                <a href="../categories/index.html">Categories</a>
+                <a href="../offers/index.html">Offers</a>
+                <a href="../trends/index.html">Trends</a>
+                <a href="../sales/index.html">Sale <span class="live-badge">HOT</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Hero -->
+        <div class="page-hero">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Home</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span>Shop All</span>
+            </div>
+            <h1>All Retailer Products & Deals</h1>
+            <p>Browse our complete catalog of curated fashion, lifestyle, and home deals from India's leading shopping platforms.</p>
+        </div>
+
+        <div class="affiliate-disclosure-banner">
+            <i class="fa-solid fa-circle-info"></i>
+            <div>
+                <strong>Affiliate Notice:</strong> Purchases made via outbound links may generate an affiliate commission for TrendShow at no additional cost to you. <a href="../affiliate-disclosure/index.html">Read disclosure</a>.
+            </div>
+        </div>
+
+        <!-- Filter & Control Section -->
+        <section class="shop-controls-wrapper">
+            <div class="filter-group">
+                <span class="filter-label"><i class="fa-solid fa-store"></i> Retailer:</span>
+                <div class="filter-pills" id="retailerFilterPills">
+                    <button class="filter-pill active" data-retailer="all">All Retailers</button>
+                    <button class="filter-pill" data-retailer="topDeals">Top Deals</button>
+                    <button class="filter-pill" data-retailer="amazon">Amazon</button>
+                    <button class="filter-pill" data-retailer="flipkart">Flipkart</button>
+                    <button class="filter-pill" data-retailer="meesho">Meesho</button>
+                    <button class="filter-pill" data-retailer="jiomart">JioMart</button>
+                    <button class="filter-pill" data-retailer="myntra">Myntra</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-label"><i class="fa-solid fa-layer-group"></i> Category:</span>
+                <div class="filter-pills" id="categoryFilterPills">
+                    <button class="filter-pill active" data-category="all">All Categories</button>
+                    <button class="filter-pill" data-category="streetwear">Streetwear</button>
+                    <button class="filter-pill" data-category="ethnic">Ethnic Wear</button>
+                    <button class="filter-pill" data-category="footwear">Footwear</button>
+                    <button class="filter-pill" data-category="activewear">Activewear</button>
+                    <button class="filter-pill" data-category="accessories">Accessories</button>
+                    <button class="filter-pill" data-category="home-living">Home & Living</button>
+                </div>
+            </div>
+
+            <div class="results-header">
+                <span class="results-count" id="resultsCount">Showing 36 products</span>
+                <div class="sort-box">
+                    <label for="sortSelect">Sort By:</label>
+                    <select id="sortSelect">
+                        <option value="featured">Featured / Curated</option>
+                        <option value="discount">Highest Discount</option>
+                        <option value="name">Product Name (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Grid -->
+        <section class="shop-grid-container">
+            <div class="grid-category" id="shopProductsGrid">
+                <!-- Injected by script.js -->
+            </div>
+            <div class="empty-state" id="shopEmptyState" style="display: none;">
+                <i class="fa-solid fa-box-open"></i>
+                <h3>No products found</h3>
+                <p>Try selecting a different retailer or category filter.</p>
+                <button class="btn-reset" id="resetFiltersBtn">Reset All Filters</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <div>© 2026 TrendShow. Multi-retailer affiliate shopping discovery portal.</div>
+                <div class="footer-bottom-links">
+                    <a href="../affiliate-disclosure/index.html">Disclosure</a>
+                    <a href="../privacy-policy/index.html">Privacy</a>
+                    <a href="../terms/index.html">Terms</a>
+                    <a href="../contact/index.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/product-data.js"></script>
+    <script src="../../assets/js/shared.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

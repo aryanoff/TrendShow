@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore top discounts, festive offers, and mega clearance deals across Amazon, Flipkart, Meesho, JioMart, and Myntra.">
+    <title>Offers & Discounts Hub — TrendShow</title>
+    <link rel="stylesheet" href="../../assets/css/shared.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://static.vecteezy.com/system/resources/thumbnails/043/101/890/small/shoping-cart-icon-3d-render-illustration-png.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="head-bar">
+        <nav>
+            <div class="logo">
+                <a href="../../index.html">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/043/101/890/small/shoping-cart-icon-3d-render-illustration-png.png" alt="TrendShow">
+                    <span>TrendShow</span>
+                </a>
+            </div>
+            <div class="search">
+                <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="search" placeholder="Search discount offers...">
+            </div>
+            <div class="menu">
+                <a href="../../index.html">Home</a>
+                <a href="../shop/index.html">Shop</a>
+                <a href="../categories/index.html">Categories</a>
+                <a href="index.html" class="active">Offers</a>
+                <a href="../trends/index.html">Trends</a>
+                <a href="../sales/index.html">Sale <span class="live-badge">HOT</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-hero">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Home</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span>Offers</span>
+            </div>
+            <h1>Offers & Discounts Hub</h1>
+            <p>Filter verified savings by discount tier, price budget, or retailer across all active campaigns.</p>
+        </div>
+
+        <div class="affiliate-disclosure-banner">
+            <i class="fa-solid fa-circle-info"></i>
+            <div>
+                <strong>Affiliate Notice:</strong> TrendShow curates discount opportunities. Qualifying purchases made through outbound merchant links may earn us an affiliate commission. <a href="../affiliate-disclosure/index.html">Learn more</a>.
+            </div>
+        </div>
+
+        <!-- Offer Filters -->
+        <section class="offers-control-section">
+            <div class="discount-tiers-row" id="discountTiersRow">
+                <button class="tier-btn active" data-tier="all">🔥 All Mega Offers</button>
+                <button class="tier-btn" data-tier="70">70%+ OFF</button>
+                <button class="tier-btn" data-tier="60">60%+ OFF</button>
+                <button class="tier-btn" data-tier="50">50%+ OFF</button>
+                <button class="tier-btn" data-tier="budget">Under ₹500</button>
+            </div>
+        </section>
+
+        <!-- Offers Grid -->
+        <section class="offers-grid-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border-light);">
+                <span id="offersCountText" style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Showing active offers</span>
+            </div>
+            <div class="grid-category" id="offersGrid">
+                <!-- Products injected by script.js -->
+            </div>
+            <div class="empty-state" id="offersEmptyState" style="display: none; padding: 45px 20px; text-align: center;">
+                <i class="fa-solid fa-tags" style="font-size: 36px; color: #ff8a00; margin-bottom: 14px;"></i>
+                <h3 style="font-size: 20px; color: #282c3f; margin-bottom: 8px;">No offers match this discount tier</h3>
+                <p style="font-size: 14px; color: #878b94; max-width: 480px; margin: 0 auto 18px;">Try selecting another discount tier or browse all available catalog deals.</p>
+                <button type="button" id="offersResetBtn" class="btn-primary" style="display: inline-block; padding: 10px 22px; border-radius: 9999px; background: #ff3f6c; color: #fff; font-weight: 700; border: none; cursor: pointer;">Show All Deals</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <div>© 2026 TrendShow. Multi-retailer affiliate shopping discovery portal.</div>
+                <div class="footer-bottom-links">
+                    <a href="../affiliate-disclosure/index.html">Disclosure</a>
+                    <a href="../privacy-policy/index.html">Privacy</a>
+                    <a href="../terms/index.html">Terms</a>
+                    <a href="../contact/index.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/product-data.js"></script>
+    <script src="../../assets/js/shared.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

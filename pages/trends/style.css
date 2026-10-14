@@ -1,0 +1,74 @@
+/* Trends Page Custom Styles */
+
+.trends-spotlight-container {
+    width: min(var(--max-width), 100%);
+    margin: 0 auto 35px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.trend-spotlight-card {
+    border-radius: var(--radius-lg);
+    padding: 35px 30px;
+    background: linear-gradient(135deg, #24292f 0%, #161b22 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-card);
+}
+
+.trend-spotlight-card--festive {
+    background: linear-gradient(135deg, #4a154b 0%, #2f0d30 100%);
+}
+
+.trend-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--brand-coral);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    margin-bottom: 12px;
+}
+
+.trend-text h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.trend-text p {
+    font-size: 14px;
+    color: #cfd3dc;
+    line-height: 1.5;
+}
+
+.trends-grid-section {
+    width: min(var(--max-width), 100%);
+    margin: 0 auto 60px;
+}
+
+.section-heading-box {
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.section-heading-box h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.section-heading-box p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .trends-spotlight-container {
+        grid-template-columns: 1fr;
+    }
+}

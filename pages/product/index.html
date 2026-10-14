@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View product specifications, verified discounts, and outbound merchant links on TrendShow.">
+    <title>Product Details — TrendShow</title>
+    <link rel="stylesheet" href="../../assets/css/shared.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://static.vecteezy.com/system/resources/thumbnails/043/101/890/small/shoping-cart-icon-3d-render-illustration-png.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="head-bar">
+        <nav>
+            <div class="logo">
+                <a href="../../index.html">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/043/101/890/small/shoping-cart-icon-3d-render-illustration-png.png" alt="TrendShow">
+                    <span>TrendShow</span>
+                </a>
+            </div>
+            <div class="search">
+                <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="search" placeholder="Search products, brands...">
+            </div>
+            <div class="menu">
+                <a href="../../index.html">Home</a>
+                <a href="../shop/index.html">Shop</a>
+                <a href="../categories/index.html">Categories</a>
+                <a href="../offers/index.html">Offers</a>
+                <a href="../trends/index.html">Trends</a>
+                <a href="../sales/index.html">Sale <span class="live-badge">HOT</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Product Container -->
+        <section class="product-view-container" id="productViewContainer">
+            <div class="breadcrumbs" id="productBreadcrumbs">
+                <a href="../../index.html">Home</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <a href="../shop/index.html">Shop</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span id="breadcrumbCurrentTitle">Product Details</span>
+            </div>
+
+            <div class="product-layout" id="productLayout">
+                <!-- Left: Product Image -->
+                <div class="product-gallery">
+                    <div class="main-image-frame">
+                        <img id="productMainImage" src="" alt="Product Photo">
+                        <span class="product-tag-badge" id="productTagBadge"></span>
+                    </div>
+                </div>
+
+                <!-- Right: Details & Affiliate Actions -->
+                <div class="product-info-panel">
+                    <div class="retailer-chip" id="productRetailerChip">
+                        <i class="fa-solid fa-store"></i> <span id="productRetailerName">Retailer</span>
+                    </div>
+
+                    <h1 class="product-main-title" id="productMainTitle">Loading product...</h1>
+                    <span class="product-brand-subtitle" id="productBrandSubtitle"></span>
+
+                    <div class="price-offer-box">
+                        <div class="price-display-group">
+                            <span class="price-label">Listed Price:</span>
+                            <span class="product-price-range" id="productPriceRange">--</span>
+                        </div>
+                        <span class="product-offer-tag" id="productOfferTag" style="display: none;"></span>
+                    </div>
+
+                    <div class="product-description-box" id="productDescriptionBox">
+                        <h4>Product Details & Description</h4>
+                        <div class="product-desc-wrapper" id="productDescWrapper">
+                            <p id="productDescriptionText"></p>
+                        </div>
+                        <button type="button" class="btn-desc-toggle" id="btnDescToggle" style="display: none;">
+                            <span>Read full description</span> <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+
+                    <!-- Outbound Affiliate CTA -->
+                    <div class="affiliate-action-card">
+                        <div class="affiliate-action-header">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> External Retailer Link
+                        </div>
+                        <p class="affiliate-action-note">
+                            TrendShow is an independent deal discovery portal. When you click below, you will leave TrendShow and visit the official retailer website to check real-time stock, choose options, and complete checkout.
+                        </p>
+                        <a href="#" id="productAffiliateBtn" target="_blank" rel="sponsored nofollow noopener" class="btn-outbound-merchant">
+                            <span>Proceed to Merchant Site</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Not Found State -->
+            <div class="product-not-found" id="productNotFound" style="display: none;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <h2>Product Not Found</h2>
+                <p>The product identifier specified in the URL does not exist or has expired.</p>
+                <a href="../shop/index.html" class="btn-primary" style="display: inline-block; margin-top: 15px; padding: 10px 22px; border-radius: 9999px; background: #ff3f6c; color: #fff; font-weight: 700;">Explore All Deals</a>
+            </div>
+        </section>
+
+        <!-- Related Products Section -->
+        <section class="related-products-section" id="relatedProductsSection">
+            <div class="section-heading-box">
+                <h2>Similar Deals You Might Like</h2>
+                <p>Curated recommendations from the same collection</p>
+            </div>
+            <div class="grid-category" id="relatedProductsGrid"></div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <div>© 2026 TrendShow. Multi-retailer affiliate shopping discovery portal.</div>
+                <div class="footer-bottom-links">
+                    <a href="../affiliate-disclosure/index.html">Disclosure</a>
+                    <a href="../privacy-policy/index.html">Privacy</a>
+                    <a href="../terms/index.html">Terms</a>
+                    <a href="../contact/index.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/product-data.js"></script>
+    <script src="../../assets/js/shared.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

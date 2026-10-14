@@ -1,0 +1,91 @@
+/* Sales Page Styles */
+
+.festivals-container {
+    width: min(var(--max-width), 100%);
+    margin: 0 auto 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.festival-card {
+    padding: 24px 20px;
+    border-radius: var(--radius-md);
+    background: #ffffff;
+    border: 1.5px solid var(--border-light);
+    box-shadow: var(--shadow-subtle);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.festival-card--amazon {
+    border-top: 4px solid var(--brand-amber);
+}
+
+.festival-card--flipkart {
+    border-top: 4px solid var(--brand-blue);
+}
+
+.festival-card--meesho {
+    border-top: 4px solid var(--brand-magenta);
+}
+
+.festival-card--myntra {
+    border-top: 4px solid var(--brand-coral);
+}
+
+.fest-badge {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--brand-coral);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.festival-card h3 {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.3;
+    margin: 0;
+}
+
+.festival-card p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.fest-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--brand-coral);
+    margin-top: auto;
+}
+
+.fest-btn:hover {
+    text-decoration: underline;
+}
+
+.sale-products-section {
+    width: min(var(--max-width), 100%);
+    margin: 0 auto 60px;
+}
+
+@media (max-width: 1024px) {
+    .festivals-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .festivals-container {
+        grid-template-columns: 1fr;
+    }
+}

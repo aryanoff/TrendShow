@@ -1,0 +1,47 @@
+/* Offers Page Styles */
+
+.offers-control-section {
+    width: min(var(--max-width), 100%);
+    margin: 0 auto 30px;
+    padding: 16px 20px;
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    display: flex;
+    justify-content: center;
+}
+
+.discount-tiers-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.tier-btn {
+    padding: 8px 18px;
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    font-weight: 700;
+    background: #f4f5f8;
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tier-btn:hover {
+    background: #eaecee;
+}
+
+.tier-btn.active {
+    background: var(--brand-coral);
+    border-color: var(--brand-coral);
+    color: #ffffff;
+    box-shadow: 0 3px 10px rgba(255, 63, 108, 0.25);
+}
+
+.offers-grid-section {
+    width: min(var(--max-width), 100%);
+    margin: 0 auto 60px;
+}

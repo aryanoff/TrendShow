@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search products, brands, discount deals, and retailers on TrendShow.">
+    <title>Search Deals & Products — TrendShow</title>
+    <link rel="stylesheet" href="../../assets/css/shared.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://static.vecteezy.com/system/resources/thumbnails/043/101/890/small/shoping-cart-icon-3d-render-illustration-png.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="head-bar">
+        <nav>
+            <div class="logo">
+                <a href="../../index.html">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/043/101/890/small/shoping-cart-icon-3d-render-illustration-png.png" alt="TrendShow">
+                    <span>TrendShow</span>
+                </a>
+            </div>
+            <div class="search">
+                <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="search" id="pageSearchInput" placeholder="Search products, brands, retailers..." autocomplete="off">
+            </div>
+            <div class="menu">
+                <a href="../../index.html">Home</a>
+                <a href="../shop/index.html">Shop</a>
+                <a href="../categories/index.html">Categories</a>
+                <a href="../offers/index.html">Offers</a>
+                <a href="../trends/index.html">Trends</a>
+                <a href="../sales/index.html">Sale <span class="live-badge">HOT</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-hero">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Home</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span>Search</span>
+            </div>
+            <h1 id="searchQueryTitle">Search Results</h1>
+            <p id="searchQuerySubtitle">Enter any product keyword, retailer name, or discount tier.</p>
+        </div>
+
+        <div class="affiliate-disclosure-banner">
+            <i class="fa-solid fa-circle-info"></i>
+            <div>
+                <strong>Notice:</strong> TrendShow searches across curated catalog records. Outbound links may earn an affiliate commission. <a href="../affiliate-disclosure/index.html">Learn more</a>.
+            </div>
+        </div>
+
+        <!-- Search Bar on Page -->
+        <section class="search-hero-bar">
+            <div class="big-search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="mainSearchField" placeholder="Search by title, brand, category, or retailer..." autocomplete="off">
+                <button type="button" id="mainSearchClearBtn" class="big-search-clear" aria-label="Clear query" style="display: none;">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <button id="mainSearchBtn">Search</button>
+            </div>
+            <div class="quick-keywords">
+                <span>Try:</span>
+                <button type="button" class="kw-btn" data-kw="Kurti">Kurtis</button>
+                <button type="button" class="kw-btn" data-kw="Shoes">Shoes</button>
+                <button type="button" class="kw-btn" data-kw="Denim">Denim</button>
+                <button type="button" class="kw-btn" data-kw="Smartwatch">Smartwatch</button>
+                <button type="button" class="kw-btn" data-kw="Amazon">Amazon</button>
+                <button type="button" class="kw-btn" data-kw="Flipkart">Flipkart</button>
+                <button type="button" class="kw-btn" data-kw="Myntra">Myntra</button>
+                <button type="button" class="kw-btn" data-kw="Meesho">Meesho</button>
+                <button type="button" class="kw-btn" data-kw="JioMart">JioMart</button>
+                <button type="button" class="kw-btn" data-kw="Ethnic">Ethnic</button>
+                <button type="button" class="kw-btn" data-kw="Streetwear">Streetwear</button>
+                <button type="button" class="kw-btn" data-kw="Handbags">Handbags</button>
+            </div>
+
+            <!-- Search Filters & Refinements -->
+            <div class="search-filters-bar">
+                <div class="filter-group">
+                    <span class="filter-label"><i class="fa-solid fa-store"></i> Retailer:</span>
+                    <div class="filter-pills" id="searchRetailerPills">
+                        <button type="button" class="filter-pill active" data-retailer="all">All Retailers</button>
+                        <button type="button" class="filter-pill" data-retailer="amazon">Amazon</button>
+                        <button type="button" class="filter-pill" data-retailer="flipkart">Flipkart</button>
+                        <button type="button" class="filter-pill" data-retailer="meesho">Meesho</button>
+                        <button type="button" class="filter-pill" data-retailer="jiomart">JioMart</button>
+                        <button type="button" class="filter-pill" data-retailer="myntra">Myntra</button>
+                        <button type="button" class="filter-pill" data-retailer="topDeals">Top Deals</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <span class="filter-label"><i class="fa-solid fa-layer-group"></i> Category:</span>
+                    <div class="filter-pills" id="searchCategoryPills">
+                        <button type="button" class="filter-pill active" data-category="all">All Categories</button>
+                        <button type="button" class="filter-pill" data-category="streetwear">Streetwear</button>
+                        <button type="button" class="filter-pill" data-category="ethnic">Ethnic Wear</button>
+                        <button type="button" class="filter-pill" data-category="footwear">Footwear</button>
+                        <button type="button" class="filter-pill" data-category="activewear">Activewear</button>
+                        <button type="button" class="filter-pill" data-category="accessories">Accessories</button>
+                        <button type="button" class="filter-pill" data-category="home-living">Home & Living</button>
+                    </div>
+                </div>
+
+                <div class="results-meta-row">
+                    <div class="results-header" id="searchResultsHeader">
+                        <span id="resultsCountText">Showing results</span>
+                        <button type="button" id="clearAllFiltersBtn" class="clear-filters-link" style="display: none;">
+                            <i class="fa-solid fa-rotate-left"></i> Reset Filters
+                        </button>
+                    </div>
+                    <div class="sort-box">
+                        <label for="searchSortSelect"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort By:</label>
+                        <select id="searchSortSelect">
+                            <option value="relevance">Best Match / Relevance</option>
+                            <option value="discount">Highest Discount</option>
+                            <option value="name">Product Name (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Results Grid -->
+        <section class="search-results-section">
+            <div class="grid-category" id="searchResultsGrid">
+                <!-- Injected by script.js -->
+            </div>
+            <div class="empty-state" id="searchEmptyState" style="display: none;">
+                <i class="fa-solid fa-face-meh"></i>
+                <h3 id="emptyStateTitle">No matching products found</h3>
+                <p id="emptyStateDesc">We couldn't find any deals matching your search criteria. Try a different keyword or broaden your filters.</p>
+                <div class="empty-state-suggestions" id="emptyStateSuggestions">
+                    <span>Try searching:</span>
+                    <button type="button" class="kw-btn" data-kw="Kurti">Kurtis</button>
+                    <button type="button" class="kw-btn" data-kw="Denim">Denim</button>
+                    <button type="button" class="kw-btn" data-kw="Shoes">Shoes</button>
+                    <button type="button" class="kw-btn" data-kw="Amazon">Amazon Deals</button>
+                </div>
+                <div style="display: flex; gap: 12px; justify-content: center; margin-top: 15px; flex-wrap: wrap;">
+                    <button type="button" id="emptyResetBtn" class="btn-primary" style="padding: 10px 22px; border-radius: 9999px; background: #ff3f6c; color: #fff; font-weight: 700; border: none; cursor: pointer;">Reset All Filters</button>
+                    <a href="../shop/index.html" style="display: inline-block; padding: 10px 22px; border-radius: 9999px; background: #f0f0f4; color: #282c3f; font-weight: 700; text-decoration: none;">Browse All Products</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <div>© 2026 TrendShow. Multi-retailer affiliate shopping discovery portal.</div>
+                <div class="footer-bottom-links">
+                    <a href="../affiliate-disclosure/index.html">Disclosure</a>
+                    <a href="../privacy-policy/index.html">Privacy</a>
+                    <a href="../terms/index.html">Terms</a>
+                    <a href="../contact/index.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/product-data.js"></script>
+    <script src="../../assets/js/shared.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
